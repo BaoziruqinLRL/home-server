@@ -1,17 +1,17 @@
-package com.yyhome.dao.example;
+package com.yyhome.data.example;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class UserFamilyRelationPOExample {
+public class FamilyMemberRelationPOExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public UserFamilyRelationPOExample() {
+    public FamilyMemberRelationPOExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -165,66 +165,6 @@ public class UserFamilyRelationPOExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNull() {
-            addCriterion("user_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdIsNotNull() {
-            addCriterion("user_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdEqualTo(Long value) {
-            addCriterion("user_id =", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdNotEqualTo(Long value) {
-            addCriterion("user_id <>", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdGreaterThan(Long value) {
-            addCriterion("user_id >", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("user_id >=", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdLessThan(Long value) {
-            addCriterion("user_id <", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdLessThanOrEqualTo(Long value) {
-            addCriterion("user_id <=", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdIn(List<Long> values) {
-            addCriterion("user_id in", values, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdNotIn(List<Long> values) {
-            addCriterion("user_id not in", values, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdBetween(Long value1, Long value2) {
-            addCriterion("user_id between", value1, value2, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdNotBetween(Long value1, Long value2) {
-            addCriterion("user_id not between", value1, value2, "userId");
-            return (Criteria) this;
-        }
-
         public Criteria andFamilyIdIsNull() {
             addCriterion("family_id is null");
             return (Criteria) this;
@@ -282,6 +222,66 @@ public class UserFamilyRelationPOExample {
 
         public Criteria andFamilyIdNotBetween(Long value1, Long value2) {
             addCriterion("family_id not between", value1, value2, "familyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdIsNull() {
+            addCriterion("member_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdIsNotNull() {
+            addCriterion("member_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdEqualTo(Long value) {
+            addCriterion("member_id =", value, "memberId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdNotEqualTo(Long value) {
+            addCriterion("member_id <>", value, "memberId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdGreaterThan(Long value) {
+            addCriterion("member_id >", value, "memberId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("member_id >=", value, "memberId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdLessThan(Long value) {
+            addCriterion("member_id <", value, "memberId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdLessThanOrEqualTo(Long value) {
+            addCriterion("member_id <=", value, "memberId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdIn(List<Long> values) {
+            addCriterion("member_id in", values, "memberId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdNotIn(List<Long> values) {
+            addCriterion("member_id not in", values, "memberId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdBetween(Long value1, Long value2) {
+            addCriterion("member_id between", value1, value2, "memberId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemberIdNotBetween(Long value1, Long value2) {
+            addCriterion("member_id not between", value1, value2, "memberId");
             return (Criteria) this;
         }
 

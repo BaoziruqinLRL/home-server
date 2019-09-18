@@ -1,7 +1,7 @@
 package com.yyhome.service.user;
 
 import com.yyhome.common.ApiResponse;
-import com.yyhome.dao.po.UserPO;
+import com.yyhome.data.po.UserPO;
 
 /**
  * @author miluo

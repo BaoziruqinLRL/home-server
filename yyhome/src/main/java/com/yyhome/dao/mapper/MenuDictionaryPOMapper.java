@@ -1,7 +1,7 @@
 package com.yyhome.dao.mapper;
 
-import com.yyhome.dao.po.MenuDictionaryPO;
-import com.yyhome.dao.example.MenuDictionaryPOExample;
+import com.yyhome.data.po.MenuDictionaryPO;
+import com.yyhome.data.example.MenuDictionaryPOExample;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yyhome.dao.mapper.FamilyMemberRelationPOMapper" >
-  <resultMap id="BaseResultMap" type="com.yyhome.dao.po.FamilyMemberRelationPO" >
+  <resultMap id="BaseResultMap" type="com.yyhome.data.po.FamilyMemberRelationPO" >
     <constructor >
       <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="family_id" jdbcType="BIGINT" javaType="java.lang.Long" />
@@ -44,7 +44,7 @@
   <sql id="Base_Column_List" >
     id, family_id, member_id, create_user, update_user, create_time, update_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yyhome.dao.example.FamilyMemberRelationPOExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yyhome.data.example.FamilyMemberRelationPOExample" >
     select
     <if test="distinct" >
       distinct
@@ -69,7 +69,7 @@
     delete from family_member_relation
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.yyhome.dao.po.FamilyMemberRelationPO" >
+  <insert id="insert" parameterType="com.yyhome.data.po.FamilyMemberRelationPO" >
     insert into family_member_relation (id, family_id, member_id, 
       create_user, update_user, create_time, 
       update_time)
@@ -77,7 +77,7 @@
       #{createUser,jdbcType=BIGINT}, #{updateUser,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.yyhome.dao.po.FamilyMemberRelationPO" >
+  <insert id="insertSelective" parameterType="com.yyhome.data.po.FamilyMemberRelationPO" >
     insert into family_member_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -126,7 +126,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yyhome.dao.po.FamilyMemberRelationPO" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyhome.data.po.FamilyMemberRelationPO" >
     update family_member_relation
     <set >
       <if test="familyId != null" >
@@ -150,7 +150,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yyhome.dao.po.FamilyMemberRelationPO" >
+  <update id="updateByPrimaryKey" parameterType="com.yyhome.data.po.FamilyMemberRelationPO" >
     update family_member_relation
     set family_id = #{familyId,jdbcType=BIGINT},
       member_id = #{memberId,jdbcType=BIGINT},

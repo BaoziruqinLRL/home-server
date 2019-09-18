@@ -1,7 +1,7 @@
 package com.yyhome.dao.mapper;
 
-import com.yyhome.dao.po.AuthMenuRelation;
-import com.yyhome.dao.example.AuthMenuRelationExample;
+import com.yyhome.data.po.AuthMenuRelation;
+import com.yyhome.data.example.AuthMenuRelationExample;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

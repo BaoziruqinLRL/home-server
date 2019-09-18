@@ -1,17 +1,17 @@
-package com.yyhome.dao.example;
+package com.yyhome.data.example;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class FamilyPOExample {
+public class UserAuthRelationPOExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public FamilyPOExample() {
+    public UserAuthRelationPOExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -165,73 +165,123 @@ public class FamilyPOExample {
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNull() {
-            addCriterion("name is null");
+        public Criteria andUserIdIsNull() {
+            addCriterion("user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNotNull() {
-            addCriterion("name is not null");
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNameEqualTo(String value) {
-            addCriterion("name =", value, "name");
+        public Criteria andUserIdEqualTo(Long value) {
+            addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotEqualTo(String value) {
-            addCriterion("name <>", value, "name");
+        public Criteria andUserIdNotEqualTo(Long value) {
+            addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThan(String value) {
-            addCriterion("name >", value, "name");
+        public Criteria andUserIdGreaterThan(Long value) {
+            addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("name >=", value, "name");
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThan(String value) {
-            addCriterion("name <", value, "name");
+        public Criteria andUserIdLessThan(Long value) {
+            addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("name <=", value, "name");
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andNameLike(String value) {
-            addCriterion("name like", value, "name");
+        public Criteria andUserIdIn(List<Long> values) {
+            addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotLike(String value) {
-            addCriterion("name not like", value, "name");
+        public Criteria andUserIdNotIn(List<Long> values) {
+            addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andNameIn(List<String> values) {
-            addCriterion("name in", values, "name");
+        public Criteria andUserIdBetween(Long value1, Long value2) {
+            addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotIn(List<String> values) {
-            addCriterion("name not in", values, "name");
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("name between", value1, value2, "name");
+        public Criteria andAuthIdIsNull() {
+            addCriterion("auth_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("name not between", value1, value2, "name");
+        public Criteria andAuthIdIsNotNull() {
+            addCriterion("auth_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthIdEqualTo(Long value) {
+            addCriterion("auth_id =", value, "authId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthIdNotEqualTo(Long value) {
+            addCriterion("auth_id <>", value, "authId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthIdGreaterThan(Long value) {
+            addCriterion("auth_id >", value, "authId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("auth_id >=", value, "authId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthIdLessThan(Long value) {
+            addCriterion("auth_id <", value, "authId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthIdLessThanOrEqualTo(Long value) {
+            addCriterion("auth_id <=", value, "authId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthIdIn(List<Long> values) {
+            addCriterion("auth_id in", values, "authId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthIdNotIn(List<Long> values) {
+            addCriterion("auth_id not in", values, "authId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthIdBetween(Long value1, Long value2) {
+            addCriterion("auth_id between", value1, value2, "authId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthIdNotBetween(Long value1, Long value2) {
+            addCriterion("auth_id not between", value1, value2, "authId");
             return (Criteria) this;
         }
 

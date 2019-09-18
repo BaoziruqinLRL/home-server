@@ -1,15 +1,13 @@
-package com.yyhome.dao.po;
+package com.yyhome.data.po;
 
 import java.util.Date;
 
-public class MenuDictionaryPO {
+public class MemberPO {
     private Long id;
-
-    private Long parentId;
 
     private String name;
 
-    private String code;
+    private String nickName;
 
     private Long createUser;
 
@@ -19,21 +17,17 @@ public class MenuDictionaryPO {
 
     private Date updateTime;
 
-    private String desc;
-
-    public MenuDictionaryPO(Long id, Long parentId, String name, String code, Long createUser, Long updateUser, Date createTime, Date updateTime, String desc) {
+    public MemberPO(Long id, String name, String nickName, Long createUser, Long updateUser, Date createTime, Date updateTime) {
         this.id = id;
-        this.parentId = parentId;
         this.name = name;
-        this.code = code;
+        this.nickName = nickName;
         this.createUser = createUser;
         this.updateUser = updateUser;
         this.createTime = createTime;
         this.updateTime = updateTime;
-        this.desc = desc;
     }
 
-    public MenuDictionaryPO() {
+    public MemberPO() {
         super();
     }
 
@@ -45,14 +39,6 @@ public class MenuDictionaryPO {
         this.id = id;
     }
 
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
-    }
-
     public String getName() {
         return name;
     }
@@ -61,12 +47,12 @@ public class MenuDictionaryPO {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getCode() {
-        return code;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
+    public void setNickName(String nickName) {
+        this.nickName = nickName == null ? null : nickName.trim();
     }
 
     public Long getCreateUser() {
@@ -99,13 +85,5 @@ public class MenuDictionaryPO {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
     }
 }

@@ -24,4 +24,10 @@ public class UserBaseController {
         var result = userBaseService.getMemberList(userId);
         return ApiResponse.success(result);
     }
+
+    @RequestMapping(value = "/menus")
+    public ApiResponse getMenus(Long userId){
+        var result = userBaseService.getMenus(userId);
+        return ApiResponse.success(result);
+    }
 }

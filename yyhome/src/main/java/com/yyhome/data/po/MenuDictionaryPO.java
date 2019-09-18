@@ -1,13 +1,15 @@
-package com.yyhome.dao.po;
+package com.yyhome.data.po;
 
 import java.util.Date;
 
-public class UserFamilyRelationPO {
+public class MenuDictionaryPO {
     private Long id;
 
-    private Long userId;
+    private Long parentId;
 
-    private Long familyId;
+    private String name;
+
+    private String code;
 
     private Long createUser;
 
@@ -17,17 +19,21 @@ public class UserFamilyRelationPO {
 
     private Date updateTime;
 
-    public UserFamilyRelationPO(Long id, Long userId, Long familyId, Long createUser, Long updateUser, Date createTime, Date updateTime) {
+    private String description;
+
+    public MenuDictionaryPO(Long id, Long parentId, String name, String code, Long createUser, Long updateUser, Date createTime, Date updateTime, String description) {
         this.id = id;
-        this.userId = userId;
-        this.familyId = familyId;
+        this.parentId = parentId;
+        this.name = name;
+        this.code = code;
         this.createUser = createUser;
         this.updateUser = updateUser;
         this.createTime = createTime;
         this.updateTime = updateTime;
+        this.description = description;
     }
 
-    public UserFamilyRelationPO() {
+    public MenuDictionaryPO() {
         super();
     }
 
@@ -39,20 +45,28 @@ public class UserFamilyRelationPO {
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getParentId() {
+        return parentId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
     }
 
-    public Long getFamilyId() {
-        return familyId;
+    public String getName() {
+        return name;
     }
 
-    public void setFamilyId(Long familyId) {
-        this.familyId = familyId;
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code == null ? null : code.trim();
     }
 
     public Long getCreateUser() {
@@ -85,5 +99,13 @@ public class UserFamilyRelationPO {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getDesc() {
+        return description;
+    }
+
+    public void setDesc(String desc) {
+        this.description = desc == null ? null : desc.trim();
     }
 }

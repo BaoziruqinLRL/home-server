@@ -1,4 +1,4 @@
-package com.yyhome.dao.po;
+package com.yyhome.data.po;
 
 import java.util.Date;
 

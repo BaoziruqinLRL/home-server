@@ -1,7 +1,7 @@
 package com.yyhome.dao.mapper;
 
-import com.yyhome.dao.po.AuthDictionaryPO;
-import com.yyhome.dao.example.AuthDictionaryPOExample;
+import com.yyhome.data.po.AuthDictionaryPO;
+import com.yyhome.data.example.AuthDictionaryPOExample;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

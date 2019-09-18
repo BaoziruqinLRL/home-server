@@ -1,7 +1,7 @@
 package com.yyhome.dao.mapper;
 
-import com.yyhome.dao.po.MemberPO;
-import com.yyhome.dao.example.MemberPOExample;
+import com.yyhome.data.po.MemberPO;
+import com.yyhome.data.example.MemberPOExample;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

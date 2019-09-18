@@ -1,6 +1,7 @@
 package com.yyhome.service.user;
 
-import com.yyhome.dao.po.MemberPO;
+import com.yyhome.data.po.MemberPO;
+import com.yyhome.data.vo.menu.MenuVO;
 
 import java.util.List;
 
@@ -11,5 +12,7 @@ import java.util.List;
 public interface UserBaseService {
 
     List<MemberPO> getMemberList(Long userId);
+
+    List<MenuVO> getMenus(Long userId);
 
 }

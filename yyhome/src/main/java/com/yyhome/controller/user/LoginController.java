@@ -1,7 +1,7 @@
 package com.yyhome.controller.user;
 
 import com.yyhome.common.ApiResponse;
-import com.yyhome.dao.po.UserPO;
+import com.yyhome.data.po.UserPO;
 import com.yyhome.service.user.UserLoginService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

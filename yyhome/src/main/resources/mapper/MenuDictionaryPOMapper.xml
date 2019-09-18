@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yyhome.dao.mapper.MenuDictionaryPOMapper" >
-  <resultMap id="BaseResultMap" type="com.yyhome.dao.po.MenuDictionaryPO" >
+  <resultMap id="BaseResultMap" type="com.yyhome.data.po.MenuDictionaryPO" >
     <constructor >
       <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="parent_id" jdbcType="BIGINT" javaType="java.lang.Long" />
@@ -13,7 +13,7 @@
       <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.yyhome.dao.po.MenuDictionaryPO" >
+  <resultMap id="ResultMapWithBLOBs" type="com.yyhome.data.po.MenuDictionaryPO" >
     <constructor >
       <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="parent_id" jdbcType="BIGINT" javaType="java.lang.Long" />
@@ -23,7 +23,7 @@
       <arg column="update_user" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="desc" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+      <arg column="description" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -59,9 +59,9 @@
     id, parent_id, name, code, create_user, update_user, create_time, update_time
   </sql>
   <sql id="Blob_Column_List" >
-    desc
+    description
   </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.yyhome.dao.example.MenuDictionaryPOExample" >
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.yyhome.data.example.MenuDictionaryPOExample" >
     select
     <if test="distinct" >
       distinct
@@ -78,7 +78,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yyhome.dao.example.MenuDictionaryPOExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yyhome.data.example.MenuDictionaryPOExample" >
     select
     <if test="distinct" >
       distinct
@@ -105,17 +105,17 @@
     delete from menu_dictionary
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.yyhome.dao.po.MenuDictionaryPO" >
+  <insert id="insert" parameterType="com.yyhome.data.po.MenuDictionaryPO" >
     insert into menu_dictionary (id, parent_id, name, 
       code, create_user, update_user, 
-      create_time, update_time, desc
+      create_time, update_time, description
       )
     values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
       #{code,jdbcType=VARCHAR}, #{createUser,jdbcType=BIGINT}, #{updateUser,jdbcType=BIGINT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{desc,jdbcType=LONGVARCHAR}
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{description,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.yyhome.dao.po.MenuDictionaryPO" >
+  <insert id="insertSelective" parameterType="com.yyhome.data.po.MenuDictionaryPO" >
     insert into menu_dictionary
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -142,8 +142,8 @@
       <if test="updateTime != null" >
         update_time,
       </if>
-      <if test="desc != null" >
-        desc,
+      <if test="description != null" >
+        description,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -171,12 +171,12 @@
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="desc != null" >
-        #{desc,jdbcType=LONGVARCHAR},
+      <if test="description != null" >
+        #{description,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yyhome.dao.po.MenuDictionaryPO" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyhome.data.po.MenuDictionaryPO" >
     update menu_dictionary
     <set >
       <if test="parentId != null" >
@@ -200,13 +200,13 @@
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="desc != null" >
-        desc = #{desc,jdbcType=LONGVARCHAR},
+      <if test="description != null" >
+        description = #{description,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yyhome.dao.po.MenuDictionaryPO" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yyhome.data.po.MenuDictionaryPO" >
     update menu_dictionary
     set parent_id = #{parentId,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},
@@ -215,10 +215,10 @@
       update_user = #{updateUser,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      desc = #{desc,jdbcType=LONGVARCHAR}
+      description = #{description,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yyhome.dao.po.MenuDictionaryPO" >
+  <update id="updateByPrimaryKey" parameterType="com.yyhome.data.po.MenuDictionaryPO" >
     update menu_dictionary
     set parent_id = #{parentId,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},

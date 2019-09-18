@@ -1,13 +1,13 @@
-package com.yyhome.dao.po;
+package com.yyhome.data.po;
 
 import java.util.Date;
 
-public class MemberPO {
+public class UserFamilyRelationPO {
     private Long id;
 
-    private String name;
+    private Long userId;
 
-    private String nickName;
+    private Long familyId;
 
     private Long createUser;
 
@@ -17,17 +17,17 @@ public class MemberPO {
 
     private Date updateTime;
 
-    public MemberPO(Long id, String name, String nickName, Long createUser, Long updateUser, Date createTime, Date updateTime) {
+    public UserFamilyRelationPO(Long id, Long userId, Long familyId, Long createUser, Long updateUser, Date createTime, Date updateTime) {
         this.id = id;
-        this.name = name;
-        this.nickName = nickName;
+        this.userId = userId;
+        this.familyId = familyId;
         this.createUser = createUser;
         this.updateUser = updateUser;
         this.createTime = createTime;
         this.updateTime = updateTime;
     }
 
-    public MemberPO() {
+    public UserFamilyRelationPO() {
         super();
     }
 
@@ -39,20 +39,20 @@ public class MemberPO {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getNickName() {
-        return nickName;
+    public Long getFamilyId() {
+        return familyId;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName == null ? null : nickName.trim();
+    public void setFamilyId(Long familyId) {
+        this.familyId = familyId;
     }
 
     public Long getCreateUser() {

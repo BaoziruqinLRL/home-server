@@ -1,17 +1,17 @@
-package com.yyhome.dao.example;
+package com.yyhome.data.example;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class FamilyMemberRelationPOExample {
+public class MenuDictionaryPOExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public FamilyMemberRelationPOExample() {
+    public MenuDictionaryPOExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -165,123 +165,203 @@ public class FamilyMemberRelationPOExample {
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdIsNull() {
-            addCriterion("family_id is null");
+        public Criteria andParentIdIsNull() {
+            addCriterion("parent_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdIsNotNull() {
-            addCriterion("family_id is not null");
+        public Criteria andParentIdIsNotNull() {
+            addCriterion("parent_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdEqualTo(Long value) {
-            addCriterion("family_id =", value, "familyId");
+        public Criteria andParentIdEqualTo(Long value) {
+            addCriterion("parent_id =", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdNotEqualTo(Long value) {
-            addCriterion("family_id <>", value, "familyId");
+        public Criteria andParentIdNotEqualTo(Long value) {
+            addCriterion("parent_id <>", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdGreaterThan(Long value) {
-            addCriterion("family_id >", value, "familyId");
+        public Criteria andParentIdGreaterThan(Long value) {
+            addCriterion("parent_id >", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("family_id >=", value, "familyId");
+        public Criteria andParentIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("parent_id >=", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdLessThan(Long value) {
-            addCriterion("family_id <", value, "familyId");
+        public Criteria andParentIdLessThan(Long value) {
+            addCriterion("parent_id <", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdLessThanOrEqualTo(Long value) {
-            addCriterion("family_id <=", value, "familyId");
+        public Criteria andParentIdLessThanOrEqualTo(Long value) {
+            addCriterion("parent_id <=", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdIn(List<Long> values) {
-            addCriterion("family_id in", values, "familyId");
+        public Criteria andParentIdIn(List<Long> values) {
+            addCriterion("parent_id in", values, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdNotIn(List<Long> values) {
-            addCriterion("family_id not in", values, "familyId");
+        public Criteria andParentIdNotIn(List<Long> values) {
+            addCriterion("parent_id not in", values, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdBetween(Long value1, Long value2) {
-            addCriterion("family_id between", value1, value2, "familyId");
+        public Criteria andParentIdBetween(Long value1, Long value2) {
+            addCriterion("parent_id between", value1, value2, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andFamilyIdNotBetween(Long value1, Long value2) {
-            addCriterion("family_id not between", value1, value2, "familyId");
+        public Criteria andParentIdNotBetween(Long value1, Long value2) {
+            addCriterion("parent_id not between", value1, value2, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdIsNull() {
-            addCriterion("member_id is null");
+        public Criteria andNameIsNull() {
+            addCriterion("name is null");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdIsNotNull() {
-            addCriterion("member_id is not null");
+        public Criteria andNameIsNotNull() {
+            addCriterion("name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdEqualTo(Long value) {
-            addCriterion("member_id =", value, "memberId");
+        public Criteria andNameEqualTo(String value) {
+            addCriterion("name =", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdNotEqualTo(Long value) {
-            addCriterion("member_id <>", value, "memberId");
+        public Criteria andNameNotEqualTo(String value) {
+            addCriterion("name <>", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdGreaterThan(Long value) {
-            addCriterion("member_id >", value, "memberId");
+        public Criteria andNameGreaterThan(String value) {
+            addCriterion("name >", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("member_id >=", value, "memberId");
+        public Criteria andNameGreaterThanOrEqualTo(String value) {
+            addCriterion("name >=", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdLessThan(Long value) {
-            addCriterion("member_id <", value, "memberId");
+        public Criteria andNameLessThan(String value) {
+            addCriterion("name <", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdLessThanOrEqualTo(Long value) {
-            addCriterion("member_id <=", value, "memberId");
+        public Criteria andNameLessThanOrEqualTo(String value) {
+            addCriterion("name <=", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdIn(List<Long> values) {
-            addCriterion("member_id in", values, "memberId");
+        public Criteria andNameLike(String value) {
+            addCriterion("name like", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdNotIn(List<Long> values) {
-            addCriterion("member_id not in", values, "memberId");
+        public Criteria andNameNotLike(String value) {
+            addCriterion("name not like", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdBetween(Long value1, Long value2) {
-            addCriterion("member_id between", value1, value2, "memberId");
+        public Criteria andNameIn(List<String> values) {
+            addCriterion("name in", values, "name");
             return (Criteria) this;
         }
 
-        public Criteria andMemberIdNotBetween(Long value1, Long value2) {
-            addCriterion("member_id not between", value1, value2, "memberId");
+        public Criteria andNameNotIn(List<String> values) {
+            addCriterion("name not in", values, "name");
+            return (Criteria) this;
+        }
+
+        public Criteria andNameBetween(String value1, String value2) {
+            addCriterion("name between", value1, value2, "name");
+            return (Criteria) this;
+        }
+
+        public Criteria andNameNotBetween(String value1, String value2) {
+            addCriterion("name not between", value1, value2, "name");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeIsNull() {
+            addCriterion("code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeIsNotNull() {
+            addCriterion("code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeEqualTo(String value) {
+            addCriterion("code =", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeNotEqualTo(String value) {
+            addCriterion("code <>", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeGreaterThan(String value) {
+            addCriterion("code >", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("code >=", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeLessThan(String value) {
+            addCriterion("code <", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeLessThanOrEqualTo(String value) {
+            addCriterion("code <=", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeLike(String value) {
+            addCriterion("code like", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeNotLike(String value) {
+            addCriterion("code not like", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeIn(List<String> values) {
+            addCriterion("code in", values, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeNotIn(List<String> values) {
+            addCriterion("code not in", values, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeBetween(String value1, String value2) {
+            addCriterion("code between", value1, value2, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeNotBetween(String value1, String value2) {
+            addCriterion("code not between", value1, value2, "code");
             return (Criteria) this;
         }
 
