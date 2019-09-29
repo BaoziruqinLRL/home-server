@@ -2,7 +2,6 @@ package com.yyhome.controller.user;
 
 import com.yyhome.common.ApiResponse;
 import com.yyhome.service.user.UserBaseService;
-import lombok.var;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

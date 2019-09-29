@@ -127,3 +127,42 @@ CREATE TABLE `user_family_relation` (
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户家庭关联表';
+
+DROP TABLE IF EXISTS `email_job`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4;
+CREATE TABLE `email_job` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `name` varchar(50) DEFAULT NULL COMMENT '任务名',
+  `sender` varchar(50) DEFAULT NULL COMMENT '邮件发件人',
+  `auth_code` varchar(50) DEFAULT NULL COMMENT '邮件发件授权码',
+  `type` tinyint(4) DEFAULT NULL COMMANT '邮件类型, 1主题邮件, 2模板邮件',
+  `subject` text DEFAULT NULL COMMENT '邮件主题',
+  `context` text DEFAULT NULL COMMENT '邮件文本',
+  `template_id` bigint(20) DEFAULT NULL COMMENT '邮件模板id',
+  `last_run_time` datetime DEFAULT NULL COMMENT '上次运行任务时间',
+  `create_user` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `update_user` bigint(20) DEFAULT NULL COMMENT '更新人',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='邮件任务列表';
+
+DROP TABLE IF EXISTS `email_job_rule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4;
+CREATE TABLE `email_job_rule` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `email_id` bigint(20) NOT NULL COMMENT '邮件任务id',
+  `start_time` time NOT NULL COMMENT '开始发送时间点',
+  `end_time` time DEFAULT NULL COMMENT '结束发送时间点',
+  `start_date` date NOT NULL COMMENT '开始发送日期',
+  `end_date` date DEFAULT NULL COMMENT '结束发送日期',
+  `interval` int(11) NOT NULL COMMENT '发送间隔,单位分钟',
+  `rule_sort` int(11) NOT NULL COMMENT '规则序号',
+  `create_user` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `update_user` bigint(20) DEFAULT NULL COMMENT '更新人',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='邮件发件时间规则表';

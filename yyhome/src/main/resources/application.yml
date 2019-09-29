@@ -8,6 +8,21 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 669988
+  # qq邮箱配置
+  mail:
+    host: smtp.qq.com
+    username: 529868669@qq.com
+    password: bvgkuklywmoqcajg
+    properties:
+      mail:
+        smtp:
+          port: 465
+          auth: true
+          ssl:
+            enable: true
+          starttls:
+            enable: true
+            required: true
 
 # mybatis配置
 mybatis:

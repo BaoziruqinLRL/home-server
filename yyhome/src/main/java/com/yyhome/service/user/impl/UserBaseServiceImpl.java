@@ -5,12 +5,10 @@ import com.yyhome.data.example.*;
 import com.yyhome.data.po.*;
 import com.yyhome.data.vo.menu.MenuVO;
 import com.yyhome.service.user.UserBaseService;
-import lombok.var;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
