@@ -10,10 +10,12 @@ import com.yyhome.data.enums.EmailJobTypeEnums;
 import com.yyhome.data.example.EmailJobPOExample;
 import com.yyhome.data.example.EmailJobRulePOExample;
 import com.yyhome.data.po.EmailJobPO;
+import com.yyhome.data.po.EmailJobRulePO;
 import com.yyhome.data.vo.mail.EmailJobVO;
 import com.yyhome.service.email.EmailService;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -57,6 +59,33 @@ public class EmailServiceImpl implements EmailService {
                 JudgeUtil.notNullSet(jo, email -> email.setRules(ruleMap.get(job.getId())));
                 result.add(jo);
             });
+        }
+        return result;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public EmailJobBO createEmailJob(EmailJobVO email) {
+        var result = new EmailJobBO();
+        var job = BeanTools.copy(email,EmailJobPO.class);
+        job.setCreateUser(email.getUserId());
+        var ruleList = BeanTools.copyCollection(email.getRules(), EmailJobRulePO.class);
+        var jobRes = emailMapper.insert(job);
+        if (jobRes == 1){
+            result.setId(job.getId());
+            var rules = new ArrayList<EmailJobRuleBO>();
+            ruleList.forEach(rule -> {
+                rule.setEmailId(job.getId());
+                rule.setCreateUser(email.getUserId());
+                if (ruleMapper.insert(rule) != 1){
+                    throw new RuntimeException("insert rule error");
+                }else{
+                    var bo = new EmailJobRuleBO();
+                    bo.setId(rule.getId());
+                    rules.add(bo);
+                }
+            });
+            result.setRules(rules);
         }
         return result;
     }

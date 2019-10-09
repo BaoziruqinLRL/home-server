@@ -17,4 +17,11 @@ public interface EmailService {
      * @return 列表结果
      */
     List<EmailJobBO> getEmailJobList(EmailJobVO param);
+
+    /**
+     * 创建邮件任务
+     * @param email 邮件
+     * @return 创建结果
+     */
+    EmailJobBO createEmailJob(EmailJobVO email);
 }

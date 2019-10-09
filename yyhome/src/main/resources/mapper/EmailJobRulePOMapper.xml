@@ -75,7 +75,7 @@
     delete from email_job_rule
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.yyhome.data.po.EmailJobRulePO" >
+  <insert id="insert" parameterType="com.yyhome.data.po.EmailJobRulePO" useGeneratedKeys="true" keyProperty="id">
     insert into email_job_rule (id, email_id, start_time, 
       end_time, start_date, end_date,
       `interval`, rule_sort, create_user,
@@ -84,7 +84,7 @@
     values (#{id,jdbcType=BIGINT}, #{emailId,jdbcType=BIGINT}, #{startTime,jdbcType=TIME}, 
       #{endTime,jdbcType=TIME}, #{startDate,jdbcType=DATE}, #{endDate,jdbcType=DATE},
       #{interval,jdbcType=INTEGER}, #{ruleSort,jdbcType=INTEGER}, #{createUser,jdbcType=BIGINT}, 
-      #{updateUser,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      #{updateUser,jdbcType=BIGINT}, now(), now()
       )
   </insert>
   <insert id="insertSelective" parameterType="com.yyhome.data.po.EmailJobRulePO" >

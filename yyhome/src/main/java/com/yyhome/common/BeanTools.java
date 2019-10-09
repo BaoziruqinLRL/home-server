@@ -4,6 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * @author miluo
@@ -21,6 +24,21 @@ public class BeanTools {
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             log.error(e.getMessage(),e);
         }
-        return null;
+        return (D) new Object();
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <S extends Collection,D> List<D> copyCollection(S source, Class<D> destClass){
+        var list = new ArrayList<D>(source.size());
+        source.forEach(x -> {
+            try {
+                var item = destClass.getDeclaredConstructor().newInstance();
+                BeanUtils.copyProperties(x,item);
+                list.add(item);
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                log.error(e.getMessage(),e);
+            }
+        });
+        return list;
     }
 }

@@ -92,7 +92,7 @@
     delete from email_job
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.yyhome.data.po.EmailJobPO" >
+  <insert id="insert" parameterType="com.yyhome.data.po.EmailJobPO" useGeneratedKeys="true" keyProperty="id">
     insert into email_job (id, name, sender, 
       auth_code, template_id, last_run_time, 
       create_user, update_user, create_time, 
@@ -100,8 +100,8 @@
       )
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{sender,jdbcType=VARCHAR}, 
       #{authCode,jdbcType=VARCHAR}, #{templateId,jdbcType=BIGINT}, #{lastRunTime,jdbcType=TIMESTAMP}, 
-      #{createUser,jdbcType=BIGINT}, #{updateUser,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{subject,jdbcType=LONGVARCHAR}, #{context,jdbcType=LONGVARCHAR},
+      #{createUser,jdbcType=BIGINT}, #{updateUser,jdbcType=BIGINT}, now(),
+      now(), #{subject,jdbcType=LONGVARCHAR}, #{context,jdbcType=LONGVARCHAR},
       #{type,jdbcType=INTEGER}
       )
   </insert>

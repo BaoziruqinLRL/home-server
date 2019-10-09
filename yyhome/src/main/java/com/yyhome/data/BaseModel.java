@@ -7,7 +7,7 @@ import lombok.Data;
  * @date 2019-09-29
  */
 @Data
-public class BaseModel {
+public class BaseModel{
 
     private Long userId;
 }
