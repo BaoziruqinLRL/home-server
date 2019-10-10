@@ -1,5 +1,6 @@
 package com.yyhome.service.email.impl;
 
+import com.yyhome.common.ApiResponse;
 import com.yyhome.common.BeanTools;
 import com.yyhome.common.JudgeUtil;
 import com.yyhome.dao.mapper.EmailJobPOMapper;
@@ -12,7 +13,7 @@ import com.yyhome.data.example.EmailJobRulePOExample;
 import com.yyhome.data.po.EmailJobPO;
 import com.yyhome.data.po.EmailJobRulePO;
 import com.yyhome.data.vo.mail.EmailJobVO;
-import com.yyhome.service.email.EmailService;
+import com.yyhome.service.email.EmailJobService;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +28,7 @@ import java.util.stream.Collectors;
  * @date 2019-09-27
  */
 @Component
-public class EmailServiceImpl implements EmailService {
+public class EmailJobServiceImpl implements EmailJobService {
 
     @Resource
     private EmailJobPOMapper emailMapper;
@@ -70,23 +71,48 @@ public class EmailServiceImpl implements EmailService {
         var job = BeanTools.copy(email,EmailJobPO.class);
         job.setCreateUser(email.getUserId());
         var ruleList = BeanTools.copyCollection(email.getRules(), EmailJobRulePO.class);
-        var jobRes = emailMapper.insert(job);
+        int jobRes;
+        if (job.getId() == null) {
+            jobRes = emailMapper.insert(job);
+        }else{
+            jobRes = emailMapper.updateByPrimaryKeySelective(job);
+        }
         if (jobRes == 1){
             result.setId(job.getId());
             var rules = new ArrayList<EmailJobRuleBO>();
             ruleList.forEach(rule -> {
                 rule.setEmailId(job.getId());
                 rule.setCreateUser(email.getUserId());
-                if (ruleMapper.insert(rule) != 1){
-                    throw new RuntimeException("insert rule error");
+                if (rule.getId() == null) {
+                    if (ruleMapper.insert(rule) != 1){
+                        throw new RuntimeException("insert rule error");
+                    }else{
+                        var bo = new EmailJobRuleBO();
+                        bo.setId(rule.getId());
+                        rules.add(bo);
+                    }
                 }else{
-                    var bo = new EmailJobRuleBO();
-                    bo.setId(rule.getId());
-                    rules.add(bo);
+                    if (ruleMapper.updateByPrimaryKeySelective(rule) != 1){
+                        throw new RuntimeException("update rule error");
+                    }else{
+                        var bo = new EmailJobRuleBO();
+                        bo.setId(rule.getId());
+                        rules.add(bo);
+                    }
                 }
+
             });
             result.setRules(rules);
         }
         return result;
+    }
+
+    @Override
+    public ApiResponse deleteEmailJob(Long emailId) {
+        if (emailMapper.deleteByPrimaryKey(emailId) == 1){
+            return ApiResponse.success();
+        }else{
+            return ApiResponse.fail("delete job error");
+        }
     }
 }

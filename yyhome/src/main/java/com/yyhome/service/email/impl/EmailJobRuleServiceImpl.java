@@ -1,5 +1,6 @@
 package com.yyhome.service.email.impl;
 
+import com.yyhome.common.ApiResponse;
 import com.yyhome.common.BeanTools;
 import com.yyhome.dao.mapper.EmailJobRulePOMapper;
 import com.yyhome.data.bo.EmailJobRuleBO;
@@ -23,10 +24,24 @@ public class EmailJobRuleServiceImpl implements EmailJobRuleService {
     @Override
     public EmailJobRuleBO createJobRule(EmailJobRuleVO rule) {
         var po = BeanTools.copy(rule, EmailJobRulePO.class);
-        var ruleRes = ruleMapper.insert(po);
+        int ruleRes;
+        if (po.getId() == null) {
+            ruleRes = ruleMapper.insert(po);
+        }else{
+            ruleRes = ruleMapper.updateByPrimaryKeySelective(po);
+        }
         if (ruleRes == 1){
             return BeanTools.copy(po,EmailJobRuleBO.class);
         }
         return null;
+    }
+
+    @Override
+    public ApiResponse deleteJobRule(EmailJobRuleVO rule) {
+        if (ruleMapper.deleteByPrimaryKey(rule.getId()) == 1){
+            return ApiResponse.success();
+        }else{
+            return ApiResponse.fail("delete error");
+        }
     }
 }
