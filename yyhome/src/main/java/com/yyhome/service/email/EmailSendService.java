@@ -1,6 +1,7 @@
 package com.yyhome.service.email;
 
 import com.yyhome.common.ApiResponse;
+import com.yyhome.data.bo.EmailJobBO;
 import com.yyhome.data.bo.MailBO;
 
 /**
@@ -9,7 +10,9 @@ import com.yyhome.data.bo.MailBO;
  */
 public interface EmailSendService {
 
-    ApiResponse sendTextMail(MailBO mail);
+    ApiResponse sendTextMail(EmailJobBO mail);
 
     ApiResponse sendAttachmentsMail(MailBO mail);
+
+    void reAddMailToWheel(Long emailId);
 }

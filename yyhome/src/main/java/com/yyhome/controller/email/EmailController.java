@@ -2,6 +2,7 @@ package com.yyhome.controller.email;
 
 import com.yyhome.common.ApiResponse;
 import com.yyhome.common.BeanTools;
+import com.yyhome.data.bo.EmailJobBO;
 import com.yyhome.data.bo.MailBO;
 import com.yyhome.data.vo.mail.MailVO;
 import com.yyhome.service.email.EmailSendService;
@@ -24,6 +25,6 @@ public class EmailController {
 
     @RequestMapping(value = "/send-simple-context")
     public ApiResponse sendSimpleContext(@RequestBody MailVO mailVO){
-        return emailSendService.sendTextMail(BeanTools.copy(mailVO,MailBO.class));
+        return emailSendService.sendTextMail(BeanTools.copy(mailVO, EmailJobBO.class));
     }
 }

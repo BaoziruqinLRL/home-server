@@ -6,7 +6,11 @@ import com.yyhome.dao.mapper.EmailJobRulePOMapper;
 import com.yyhome.data.bo.EmailJobRuleBO;
 import com.yyhome.data.po.EmailJobRulePO;
 import com.yyhome.data.vo.mail.EmailJobRuleVO;
+import com.yyhome.data.vo.mail.EmailJobVO;
+import com.yyhome.job.EmailSendProcessor;
 import com.yyhome.service.email.EmailJobRuleService;
+import com.yyhome.service.email.EmailJobService;
+import com.yyhome.service.email.EmailSendService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -17,6 +21,9 @@ import javax.annotation.Resource;
  */
 @Component
 public class EmailJobRuleServiceImpl implements EmailJobRuleService {
+
+    @Resource
+    private EmailSendService sendService;
 
     @Resource
     private EmailJobRulePOMapper ruleMapper;
@@ -31,6 +38,7 @@ public class EmailJobRuleServiceImpl implements EmailJobRuleService {
             ruleRes = ruleMapper.updateByPrimaryKeySelective(po);
         }
         if (ruleRes == 1){
+            sendService.reAddMailToWheel(rule.getEmailId());
             return BeanTools.copy(po,EmailJobRuleBO.class);
         }
         return null;

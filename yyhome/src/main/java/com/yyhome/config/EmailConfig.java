@@ -16,11 +16,5 @@ import java.util.List;
 @Data
 public class EmailConfig {
 
-    @Value("${mail.from.username}")
-    private String fromUser;
-
-    @Value("${mail.from.password}")
-    private String fromPass;
-
     private List<String> to;
 }

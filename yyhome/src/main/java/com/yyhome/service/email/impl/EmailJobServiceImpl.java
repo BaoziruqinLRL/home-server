@@ -13,7 +13,9 @@ import com.yyhome.data.example.EmailJobRulePOExample;
 import com.yyhome.data.po.EmailJobPO;
 import com.yyhome.data.po.EmailJobRulePO;
 import com.yyhome.data.vo.mail.EmailJobVO;
+import com.yyhome.job.EmailSendProcessor;
 import com.yyhome.service.email.EmailJobService;
+import com.yyhome.service.email.EmailSendService;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,11 +37,16 @@ public class EmailJobServiceImpl implements EmailJobService {
 
     @Resource
     private EmailJobRulePOMapper ruleMapper;
+
+    @Resource
+    private EmailSendService sendService;
+
     @Override
     public List<EmailJobBO> getEmailJobList(EmailJobVO param) {
         var jobParam = new EmailJobPOExample();
         var cri = jobParam.createCriteria();
         cri.andCreateUserEqualTo(param.getUserId());
+        JudgeUtil.notNullSet(param.getId(),cri::andIdEqualTo);
         JudgeUtil.notNullSet(param.getName(), cri::andNameLike);
         JudgeUtil.notNullSet(param.getSender(), cri::andSenderLike);
         JudgeUtil.notNullSet(param.getType(), cri::andTypeEqualTo);
@@ -100,9 +107,9 @@ public class EmailJobServiceImpl implements EmailJobService {
                         rules.add(bo);
                     }
                 }
-
             });
             result.setRules(rules);
+            sendService.reAddMailToWheel(job.getId());
         }
         return result;
     }
@@ -115,4 +122,5 @@ public class EmailJobServiceImpl implements EmailJobService {
             return ApiResponse.fail("delete job error");
         }
     }
+
 }
