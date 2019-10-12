@@ -24,7 +24,7 @@ public interface EmailJobService {
      * @param email 邮件
      * @return 创建结果
      */
-    EmailJobBO createEmailJob(EmailJobVO email);
+    ApiResponse createEmailJob(EmailJobVO email);
 
     /**
      * 删除邮件任务

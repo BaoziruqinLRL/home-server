@@ -1,7 +1,6 @@
 package com.yyhome.service.email;
 
 import com.yyhome.common.ApiResponse;
-import com.yyhome.data.bo.EmailJobRuleBO;
 import com.yyhome.data.vo.mail.EmailJobRuleVO;
 
 /**
@@ -10,7 +9,7 @@ import com.yyhome.data.vo.mail.EmailJobRuleVO;
  */
 public interface EmailJobRuleService {
 
-    EmailJobRuleBO createJobRule(EmailJobRuleVO rule);
+    ApiResponse createJobRule(EmailJobRuleVO rule);
 
     ApiResponse deleteJobRule(EmailJobRuleVO rule);
 }

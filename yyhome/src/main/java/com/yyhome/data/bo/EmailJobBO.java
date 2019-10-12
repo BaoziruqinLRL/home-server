@@ -1,5 +1,6 @@
 package com.yyhome.data.bo;
 
+import com.yyhome.common.timewheel.TimerWheelBase;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,9 +11,7 @@ import java.util.List;
  * @date 2019-09-27
  */
 @Data
-public class EmailJobBO {
-
-    private Long id;
+public class EmailJobBO extends TimerWheelBase {
 
     private String name;
 

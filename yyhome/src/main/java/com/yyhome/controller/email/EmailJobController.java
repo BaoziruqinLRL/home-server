@@ -35,7 +35,7 @@ public class EmailJobController {
     @RequestMapping(value = "/create")
     public ApiResponse createJob(@RequestBody EmailJobVO email){
         email.setUserId(10000L);
-        return ApiResponse.success(emailJobService.createEmailJob(email));
+        return emailJobService.createEmailJob(email);
     }
 
     @RequestMapping(value = "/delete")
@@ -46,7 +46,7 @@ public class EmailJobController {
     @RequestMapping(value = "/rule/create")
     public ApiResponse createJobRule(@RequestBody EmailJobRuleVO rule){
         rule.setUserId(10000L);
-        return ApiResponse.success(ruleService.createJobRule(rule));
+        return ruleService.createJobRule(rule);
     }
 
     @RequestMapping(value = "/rule/delete")

@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 时间片轮转实现
  * @param <T>
  */
-public class TimerWheel<T> {
+public class TimerWheel<T extends TimerWheelBase> {
 
     private final static int DEFAULT_SLOT_NUMBER = 512;
     private final static int DEFAULT_DURATION = 100;
@@ -37,7 +37,7 @@ public class TimerWheel<T> {
     /**
      * 删除助手.
      */
-    private final Map<T, Integer> removeHelp;
+    private final Map<Long, Integer> removeHelp;
 
     /**
      * 以默认的512个槽位,和100毫秒为间隔,并失效不通知构造一个新的时间轮.
@@ -105,7 +105,7 @@ public class TimerWheel<T> {
         // 使用的是背景线程,所以不需要主动关闭.
         worker = new ThreadPoolExecutor(1,1,60L,
                 TimeUnit.SECONDS,new LinkedBlockingQueue<>(Integer.MAX_VALUE),
-                this.buildNameThreadFactory("netty-server-time-wheel-thread",true));
+                this.buildNameThreadFactory("yyhome timeWheel",true));
         worker.submit(new PointTask());
     }
 
@@ -136,7 +136,7 @@ public class TimerWheel<T> {
             Slot slot = wheel.get(actuallySlotIndex);
             slot.add(target, round);
 
-            this.removeHelp.put(target, actuallySlotIndex);
+            this.removeHelp.put(target.getId(), actuallySlotIndex);
 
         } finally {
             lock.unlock();
@@ -165,10 +165,10 @@ public class TimerWheel<T> {
 
         lock.lock();
         try {
-            Integer slotIndex = this.removeHelp.remove(target);
+            Integer slotIndex = this.removeHelp.remove(target.getId());
             if (slotIndex != null) {
                 Slot slot = this.wheel.get(slotIndex);
-                slot.remove(target);
+                slot.remove(target.getId());
             }
         } finally {
             lock.unlock();
@@ -238,11 +238,13 @@ public class TimerWheel<T> {
         public void remove(Object target) {
             int index = 0;
             for (; index < elements.size(); index++) {
-                if (elements.get(index).getTarget().equals(target)) {
+                if (elements.get(index).getTarget().getId().equals(target)) {
                     break;
                 }
             }
-            elements.remove(index);
+            if (index < elements.size()) {
+                elements.remove(index);
+            }
         }
 
         @Override
@@ -326,7 +328,7 @@ public class TimerWheel<T> {
 
     }
 
-    private static ThreadFactory buildNameThreadFactory(final String name, final boolean daemon) {
+    private ThreadFactory buildNameThreadFactory(final String name, final boolean daemon) {
         return new ThreadFactory() {
 
             private final AtomicLong number = new AtomicLong();

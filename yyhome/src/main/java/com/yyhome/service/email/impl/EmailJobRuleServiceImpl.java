@@ -7,10 +7,10 @@ import com.yyhome.data.bo.EmailJobRuleBO;
 import com.yyhome.data.po.EmailJobRulePO;
 import com.yyhome.data.vo.mail.EmailJobRuleVO;
 import com.yyhome.data.vo.mail.EmailJobVO;
-import com.yyhome.job.EmailSendProcessor;
 import com.yyhome.service.email.EmailJobRuleService;
 import com.yyhome.service.email.EmailJobService;
 import com.yyhome.service.email.EmailSendService;
+import com.yyhome.service.email.EmailValidateUtil;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -26,10 +26,23 @@ public class EmailJobRuleServiceImpl implements EmailJobRuleService {
     private EmailSendService sendService;
 
     @Resource
+    private EmailJobService jobService;
+
+    @Resource
     private EmailJobRulePOMapper ruleMapper;
 
     @Override
-    public EmailJobRuleBO createJobRule(EmailJobRuleVO rule) {
+    public ApiResponse createJobRule(EmailJobRuleVO rule) {
+        var param = new EmailJobVO();
+        param.setId(rule.getEmailId());
+        var job = jobService.getEmailJobList(param).get(0);
+        var jobVO = BeanTools.copy(job,EmailJobVO.class);
+        jobVO.setRules(BeanTools.copyCollection(job.getRules(),EmailJobRuleVO.class));
+        jobVO.getRules().add(rule);
+        var validateRes = EmailValidateUtil.validateRule(jobVO);
+        if (validateRes != null){
+            return ApiResponse.fail(validateRes);
+        }
         var po = BeanTools.copy(rule, EmailJobRulePO.class);
         int ruleRes;
         if (po.getId() == null) {
@@ -39,9 +52,9 @@ public class EmailJobRuleServiceImpl implements EmailJobRuleService {
         }
         if (ruleRes == 1){
             sendService.reAddMailToWheel(rule.getEmailId());
-            return BeanTools.copy(po,EmailJobRuleBO.class);
+            return ApiResponse.success(BeanTools.copy(po,EmailJobRuleBO.class));
         }
-        return null;
+        return ApiResponse.fail(null);
     }
 
     @Override

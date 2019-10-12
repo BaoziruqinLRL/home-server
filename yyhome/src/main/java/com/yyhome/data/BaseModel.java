@@ -10,4 +10,6 @@ import lombok.Data;
 public class BaseModel{
 
     private Long userId;
+
+    private Long id;
 }

@@ -95,6 +95,23 @@ public class EmailSendProcessor {
         }
     }
 
+    /**
+     * 计算下次发送邮件时间,由以下几种情况组成
+     * 1.满足起始发送时间则
+     *   1-1. 无结束日期, 永久规则
+     *      1-1-1. 无结束时间, 则满足发送时间区间(startTime - 23:59:59)
+     *      1-1-2. 有结束时间, 判断是否跨天
+     *          1-1-2-1. 跨天, 当前时间若在 (endTime - startTime) 内, 则不能发送, 反之满足发送区间
+     *          1-1-2-2. 非跨天, 当前时间在 (startTime - endTime) 内, 满足发送区间
+     *   1-2. 有结束日期, 非永久规则
+     *      1-2-1. 若当前日期超过结束日期, 则规则作废
+     *      1-2-2. 当前日期没有超过结束日期, 判断时间区间
+     *          1-2-2-1. 跨天, 当前时间若在 (endTime - startTime) 内, 则作废, 反之满足发送区间
+     *          1-2-2-2. 非跨天, 当前时间在 (startTime - endTime) 内, 满足发送区间
+     * 2. 不满足起始发送时间, 返回-1
+     * @param email 邮件
+     * @return 时间,不满足则返回-1, 否则返回计算的时间
+     */
     private long calculateNextSendTime(EmailJobBO email){
         var nextTime = -1L;
         for (var rule : email.getRules()){
