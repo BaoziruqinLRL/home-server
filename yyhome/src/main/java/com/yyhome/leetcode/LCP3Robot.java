@@ -23,6 +23,7 @@ public class LCP3Robot {
      */
 
     public static void main(String[] args){
+
         System.out.println(robot("URR",new int[][]{},3,2));
         System.out.println(robot("RU",new int[][]{{4,8},{1,2},{1,5},{7,1},{9,5},{3,5},{2,4}},577,577));
         System.out.println(robot("URR",new int[][]{{2,2}},3,2));
@@ -32,6 +33,7 @@ public class LCP3Robot {
         System.out.println(robot("URR",new int[][]{{4,2}},3,2));
         System.out.println(robot("RUR",new int[][]{{3,9},{7,1},{10,5},{6,3},{4,3},{1,0},{6,5}},
                 1416,708));
+
     }
 
     /**
