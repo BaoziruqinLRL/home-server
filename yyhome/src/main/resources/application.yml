@@ -7,7 +7,7 @@ spring:
     url: jdbc:mysql://localhost:3306/home?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 669988
+    password: 961121
   # qq邮箱配置
   mail:
     host: smtp.qq.com
@@ -33,3 +33,12 @@ mybatis:
   typeHandlersPackage:
   checkConfigLocation: false
   executorType: SIMPLE
+
+app:
+  id: springboot-apollo
+apollo:
+  meta: http://127.0.0.1:8080
+  bootstrap:
+    enabled: true
+    eagerLoad:
+      enabled: true
