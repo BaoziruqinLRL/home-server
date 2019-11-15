@@ -252,3 +252,27 @@ CREATE TABLE `video_episode` (
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='视频集信息';
+
+DROP TABLE IF EXISTS `jk_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4;
+CREATE TABLE `jk_info` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `name` varchar(255) NOT NULL COMMENT 'jk名称',
+  `style` varchar(255) NOT NULL COMMENT '风格',
+  `color` varchar(20) NOT NULL COMMENT '颜色',
+  `price` DECIMAL(10,2) default NULL COMMENT '价格',
+  `type` tinyint(4) NOT NULL COMMENT '类型',
+  `remark` text default null comment '备注描述',
+  `preview_img` varchar(255) default null comment '预览图片',
+  `full_img` text default null comment '完整图片列表',
+  `obj_model` varchar(255) default null comment 'obj模型',
+  `mtl_model` varchar(255) default null comment 'mtl模型',
+  `sale_time` datetime default null COMMENT '售卖时间',
+  `buy_time` datetime default null COMMENT '购买时间',
+  `create_user` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `update_user` bigint(20) DEFAULT NULL COMMENT '更新人',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='jk信息';

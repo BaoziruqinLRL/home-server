@@ -2,6 +2,14 @@ server:
   port: 8421
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+  mvc:
+    static-path-pattern: /images/**
+  resources:
+    static-locations: file://
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://localhost:3306/home?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
@@ -42,3 +50,7 @@ apollo:
     enabled: true
     eagerLoad:
       enabled: true
+
+common:
+  image:
+    jkUploadPath: /Users/admin/Downloads/jk/

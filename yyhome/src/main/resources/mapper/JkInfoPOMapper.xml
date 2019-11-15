@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyhome.dao.mapper.JkInfoPOMapper">
+  <resultMap id="BaseResultMap" type="com.yyhome.data.po.JkInfoPO">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="style" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="color" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="type" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="preview_img" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="full_img" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="obj_model" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="mtl_model" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sale_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="buy_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="create_user" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="update_user" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, name, style, color, price, type, remark, preview_img, full_img, obj_model, mtl_model, 
+    sale_time, buy_time, create_user, update_user, create_time, update_time
+  </sql>
+  <select id="selectByExample" parameterType="com.yyhome.data.example.JkInfoPOExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from jk_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jk_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from jk_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yyhome.data.po.JkInfoPO">
+    insert into jk_info (id, name, style, 
+      color, price, type, 
+      remark, preview_img, full_img, 
+      obj_model, mtl_model, sale_time, 
+      buy_time, create_user, update_user, 
+      create_time, update_time)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{style,jdbcType=VARCHAR}, 
+      #{color,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{type,jdbcType=TINYINT}, 
+      #{remark,jdbcType=VARCHAR}, #{previewImg,jdbcType=VARCHAR}, #{fullImg,jdbcType=VARCHAR}, 
+      #{objModel,jdbcType=VARCHAR}, #{mtlModel,jdbcType=VARCHAR}, #{saleTime,jdbcType=TIMESTAMP}, 
+      #{buyTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, #{updateUser,jdbcType=BIGINT}, 
+      now(), now())
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyhome.data.po.JkInfoPO">
+    insert into jk_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="style != null">
+        style,
+      </if>
+      <if test="color != null">
+        color,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="previewImg != null">
+        preview_img,
+      </if>
+      <if test="fullImg != null">
+        full_img,
+      </if>
+      <if test="objModel != null">
+        obj_model,
+      </if>
+      <if test="mtlModel != null">
+        mtl_model,
+      </if>
+      <if test="saleTime != null">
+        sale_time,
+      </if>
+      <if test="buyTime != null">
+        buy_time,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null">
+        #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="previewImg != null">
+        #{previewImg,jdbcType=VARCHAR},
+      </if>
+      <if test="fullImg != null">
+        #{fullImg,jdbcType=VARCHAR},
+      </if>
+      <if test="objModel != null">
+        #{objModel,jdbcType=VARCHAR},
+      </if>
+      <if test="mtlModel != null">
+        #{mtlModel,jdbcType=VARCHAR},
+      </if>
+      <if test="saleTime != null">
+        #{saleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyTime != null">
+        #{buyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyhome.data.po.JkInfoPO">
+    update jk_info
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null">
+        style = #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="previewImg != null">
+        preview_img = #{previewImg,jdbcType=VARCHAR},
+      </if>
+      <if test="fullImg != null">
+        full_img = #{fullImg,jdbcType=VARCHAR},
+      </if>
+      <if test="objModel != null">
+        obj_model = #{objModel,jdbcType=VARCHAR},
+      </if>
+      <if test="mtlModel != null">
+        mtl_model = #{mtlModel,jdbcType=VARCHAR},
+      </if>
+      <if test="saleTime != null">
+        sale_time = #{saleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyTime != null">
+        buy_time = #{buyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      update_time = now(),
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyhome.data.po.JkInfoPO">
+    update jk_info
+    set name = #{name,jdbcType=VARCHAR},
+      style = #{style,jdbcType=VARCHAR},
+      color = #{color,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      type = #{type,jdbcType=TINYINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      preview_img = #{previewImg,jdbcType=VARCHAR},
+      full_img = #{fullImg,jdbcType=VARCHAR},
+      obj_model = #{objModel,jdbcType=VARCHAR},
+      mtl_model = #{mtlModel,jdbcType=VARCHAR},
+      sale_time = #{saleTime,jdbcType=TIMESTAMP},
+      buy_time = #{buyTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_user = #{updateUser,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

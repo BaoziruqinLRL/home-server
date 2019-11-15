@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyhome.dao.mapper.VideoSeriesPOMapper" >
+  <resultMap id="BaseResultMap" type="com.yyhome.data.po.VideoSeriesPO" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="group_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="series_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="series_num" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="total_episode" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="type" jdbcType="TINYINT" javaType="java.lang.Integer" />
+      <arg column="remark" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_user" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="update_user" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, group_id, series_name, series_num, total_episode, type, remark, create_user, 
+    update_user, create_time, update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.yyhome.data.example.VideoSeriesPOExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from video_series
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from video_series
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from video_series
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yyhome.data.po.VideoSeriesPO" >
+    insert into video_series (id, group_id, series_name, 
+      series_num, total_episode, type, 
+      remark, create_user, update_user, 
+      create_time, update_time)
+    values (#{id,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, #{seriesName,jdbcType=VARCHAR}, 
+      #{seriesNum,jdbcType=INTEGER}, #{totalEpisode,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, 
+      #{remark,jdbcType=VARCHAR}, #{createUser,jdbcType=BIGINT}, #{updateUser,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyhome.data.po.VideoSeriesPO" >
+    insert into video_series
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="seriesName != null" >
+        series_name,
+      </if>
+      <if test="seriesNum != null" >
+        series_num,
+      </if>
+      <if test="totalEpisode != null" >
+        total_episode,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="seriesName != null" >
+        #{seriesName,jdbcType=VARCHAR},
+      </if>
+      <if test="seriesNum != null" >
+        #{seriesNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalEpisode != null" >
+        #{totalEpisode,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyhome.data.po.VideoSeriesPO" >
+    update video_series
+    <set >
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="seriesName != null" >
+        series_name = #{seriesName,jdbcType=VARCHAR},
+      </if>
+      <if test="seriesNum != null" >
+        series_num = #{seriesNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalEpisode != null" >
+        total_episode = #{totalEpisode,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyhome.data.po.VideoSeriesPO" >
+    update video_series
+    set group_id = #{groupId,jdbcType=BIGINT},
+      series_name = #{seriesName,jdbcType=VARCHAR},
+      series_num = #{seriesNum,jdbcType=INTEGER},
+      total_episode = #{totalEpisode,jdbcType=INTEGER},
+      type = #{type,jdbcType=TINYINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_user = #{updateUser,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
