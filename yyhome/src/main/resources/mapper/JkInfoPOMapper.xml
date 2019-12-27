@@ -248,9 +248,6 @@
       <if test="updateUser != null">
         update_user = #{updateUser,jdbcType=BIGINT},
       </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
       update_time = now(),
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -271,8 +268,7 @@
       buy_time = #{buyTime,jdbcType=TIMESTAMP},
       create_user = #{createUser,jdbcType=BIGINT},
       update_user = #{updateUser,jdbcType=BIGINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = now()
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>
