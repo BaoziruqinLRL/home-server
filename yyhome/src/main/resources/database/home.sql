@@ -139,6 +139,7 @@ CREATE TABLE `email_job` (
   `type` tinyint(4) DEFAULT NULL COMMANT '邮件类型, 1主题邮件, 2模板邮件',
   `subject` text DEFAULT NULL COMMENT '邮件主题',
   `context` text DEFAULT NULL COMMENT '邮件文本',
+  `receiver` text NOT NULL COMMENT '接收人',
   `template_id` bigint(20) DEFAULT NULL COMMENT '邮件模板id',
   `last_run_time` datetime DEFAULT NULL COMMENT '上次运行任务时间',
   `create_user` bigint(20) DEFAULT NULL COMMENT '创建人',

@@ -33,5 +33,7 @@ public class EmailJobVO extends BaseModel {
 
     private String context;
 
+    private List<String> receiver;
+
     private List<EmailJobRuleVO> rules;
 }

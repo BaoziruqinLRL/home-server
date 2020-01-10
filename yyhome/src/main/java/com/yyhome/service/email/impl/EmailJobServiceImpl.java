@@ -1,5 +1,6 @@
 package com.yyhome.service.email.impl;
 
+import com.alibaba.fastjson.JSONArray;
 import com.yyhome.common.ApiResponse;
 import com.yyhome.common.BeanTools;
 import com.yyhome.common.JudgeUtil;
@@ -63,6 +64,7 @@ public class EmailJobServiceImpl implements EmailJobService {
                     .collect(Collectors.groupingBy(EmailJobRuleBO::getEmailId));
             jobList.forEach(job -> {
                 var jo = BeanTools.copy(job, EmailJobBO.class);
+                jo.setReceiver(JSONArray.parseArray(job.getReceiver(),String.class));
                 JudgeUtil.notNullSet(jo, email -> email.setTypeName(EmailJobTypeEnums.convert(email.getType()).desc()));
                 JudgeUtil.notNullSet(jo, email -> email.setRules(ruleMap.get(job.getId())));
                 result.add(jo);

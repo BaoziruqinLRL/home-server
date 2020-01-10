@@ -1,7 +1,7 @@
 package com.yyhome.dao.mapper;
 
-import com.yyhome.data.example.EmailJobPOExample;
 import com.yyhome.data.po.EmailJobPO;
+import com.yyhome.data.example.EmailJobPOExample;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -14,15 +14,11 @@ public interface EmailJobPOMapper {
 
     int insertSelective(EmailJobPO record);
 
-    List<EmailJobPO> selectByExampleWithBLOBs(EmailJobPOExample example);
-
     List<EmailJobPO> selectByExample(EmailJobPOExample example);
 
     EmailJobPO selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(EmailJobPO record);
-
-    int updateByPrimaryKeyWithBLOBs(EmailJobPO record);
 
     int updateByPrimaryKey(EmailJobPO record);
 }

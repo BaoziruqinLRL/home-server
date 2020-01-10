@@ -31,5 +31,7 @@ public class EmailJobBO extends TimerWheelBase {
 
     private String context;
 
+    private List<String> receiver;
+
     private List<EmailJobRuleBO> rules;
 }

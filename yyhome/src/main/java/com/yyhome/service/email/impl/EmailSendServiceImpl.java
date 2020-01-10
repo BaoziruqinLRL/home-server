@@ -1,7 +1,6 @@
 package com.yyhome.service.email.impl;
 
 import com.yyhome.common.ApiResponse;
-import com.yyhome.config.EmailConfig;
 import com.yyhome.data.bo.EmailJobBO;
 import com.yyhome.data.bo.MailBO;
 import com.yyhome.data.vo.mail.EmailJobVO;
@@ -24,9 +23,6 @@ import javax.annotation.Resource;
 public class EmailSendServiceImpl implements EmailSendService {
 
     @Resource
-    private EmailConfig emailConfig;
-
-    @Resource
     private JavaMailSender mailSender;
 
     @Resource
@@ -38,9 +34,9 @@ public class EmailSendServiceImpl implements EmailSendService {
     @Override
     public ApiResponse sendTextMail(EmailJobBO mail) {
         try {
-            var array = new SimpleMailMessage[emailConfig.getTo().size()];
+            var array = new SimpleMailMessage[mail.getReceiver().size()];
             var index = 0;
-            for (var to : emailConfig.getTo()){
+            for (var to : mail.getReceiver()){
                 var message = new SimpleMailMessage();
                 message.setFrom(mail.getSender());
                 message.setSubject(mail.getSubject());
