@@ -8,6 +8,10 @@ import java.util.HashMap;
  */
 public class MergeUtil {
 
+    private MergeUtil(){
+        
+    }
+
     private static final Class MERGE_ANNOTATION = Merge.class;
 
     public static <S,D> void merge(S source, D dest) throws IllegalAccessException {
