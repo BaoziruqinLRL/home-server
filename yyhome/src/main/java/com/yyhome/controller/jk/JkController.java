@@ -1,6 +1,6 @@
 package com.yyhome.controller.jk;
 
-import com.yyhome.common.ApiResponse;
+import com.yyhome.common.util.ApiResponse;
 import com.yyhome.data.vo.jk.JkInfoVO;
 import com.yyhome.service.jk.JkBaseService;
 import org.springframework.web.bind.annotation.RequestBody;

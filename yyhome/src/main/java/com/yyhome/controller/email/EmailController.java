@@ -1,9 +1,8 @@
 package com.yyhome.controller.email;
 
-import com.yyhome.common.ApiResponse;
-import com.yyhome.common.BeanTools;
+import com.yyhome.common.util.ApiResponse;
+import com.yyhome.common.util.BeanTools;
 import com.yyhome.data.bo.EmailJobBO;
-import com.yyhome.data.bo.MailBO;
 import com.yyhome.data.vo.mail.MailVO;
 import com.yyhome.service.email.EmailSendService;
 import org.springframework.web.bind.annotation.RequestBody;

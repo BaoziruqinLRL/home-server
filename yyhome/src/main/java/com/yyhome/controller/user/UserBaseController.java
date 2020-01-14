@@ -1,6 +1,6 @@
 package com.yyhome.controller.user;
 
-import com.yyhome.common.ApiResponse;
+import com.yyhome.common.util.ApiResponse;
 import com.yyhome.service.user.UserBaseService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

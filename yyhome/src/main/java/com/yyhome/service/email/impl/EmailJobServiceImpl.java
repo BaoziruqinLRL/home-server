@@ -1,9 +1,9 @@
 package com.yyhome.service.email.impl;
 
 import com.alibaba.fastjson.JSONArray;
-import com.yyhome.common.ApiResponse;
-import com.yyhome.common.BeanTools;
-import com.yyhome.common.JudgeUtil;
+import com.yyhome.common.util.ApiResponse;
+import com.yyhome.common.util.BeanTools;
+import com.yyhome.common.util.JudgeUtil;
 import com.yyhome.dao.mapper.EmailJobPOMapper;
 import com.yyhome.dao.mapper.EmailJobRulePOMapper;
 import com.yyhome.data.bo.EmailJobBO;

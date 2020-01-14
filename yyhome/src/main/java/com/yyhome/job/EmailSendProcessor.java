@@ -1,7 +1,7 @@
 package com.yyhome.job;
 
 import com.alibaba.fastjson.JSON;
-import com.yyhome.common.BeanTools;
+import com.yyhome.common.util.BeanTools;
 import com.yyhome.common.timewheel.TimeoutNotification;
 import com.yyhome.common.timewheel.TimerWheel;
 import com.yyhome.data.bo.EmailJobBO;

@@ -1,7 +1,7 @@
 package com.yyhome.service.email.impl;
 
-import com.yyhome.common.ApiResponse;
-import com.yyhome.common.BeanTools;
+import com.yyhome.common.util.ApiResponse;
+import com.yyhome.common.util.BeanTools;
 import com.yyhome.dao.mapper.EmailJobRulePOMapper;
 import com.yyhome.data.bo.EmailJobRuleBO;
 import com.yyhome.data.po.EmailJobRulePO;

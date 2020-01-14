@@ -1,6 +1,6 @@
 package com.yyhome.service.email;
 
-import com.yyhome.common.ApiResponse;
+import com.yyhome.common.util.ApiResponse;
 import com.yyhome.data.vo.mail.EmailJobRuleVO;
 
 /**

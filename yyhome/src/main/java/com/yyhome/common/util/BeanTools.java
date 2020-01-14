@@ -1,4 +1,4 @@
-package com.yyhome.common;
+package com.yyhome.common.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;

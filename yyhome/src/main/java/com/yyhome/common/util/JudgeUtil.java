@@ -1,4 +1,4 @@
-package com.yyhome.common;
+package com.yyhome.common.util;
 
 import org.apache.commons.collections.CollectionUtils;
 

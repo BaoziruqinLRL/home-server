@@ -1,6 +1,6 @@
 package com.yyhome.service.user.impl;
 
-import com.yyhome.common.ApiResponse;
+import com.yyhome.common.util.ApiResponse;
 import com.yyhome.data.po.UserPO;
 import com.yyhome.service.user.UserLoginService;
 import org.springframework.stereotype.Component;

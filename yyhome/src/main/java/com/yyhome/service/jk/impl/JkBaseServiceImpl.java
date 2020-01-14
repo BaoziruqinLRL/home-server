@@ -1,7 +1,7 @@
 package com.yyhome.service.jk.impl;
 
-import com.yyhome.common.ApiResponse;
-import com.yyhome.common.BeanTools;
+import com.yyhome.common.util.ApiResponse;
+import com.yyhome.common.util.BeanTools;
 import com.yyhome.dao.mapper.JkInfoPOMapper;
 import com.yyhome.data.example.JkInfoPOExample;
 import com.yyhome.data.po.JkInfoPO;
