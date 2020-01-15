@@ -2,7 +2,6 @@ package com.yyhome.common.annotation.merge.test;
 
 import com.alibaba.fastjson.JSON;
 import com.yyhome.common.annotation.merge.MergeUtil;
-import lombok.var;
 
 /**
  * @author miluo

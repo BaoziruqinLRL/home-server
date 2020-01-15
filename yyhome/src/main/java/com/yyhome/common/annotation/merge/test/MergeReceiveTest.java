@@ -1,6 +1,6 @@
 package com.yyhome.common.annotation.merge.test;
 
-import com.yyhome.common.annotation.merge.Merge;
+import com.yyhome.common.annotation.merge.*;
 import lombok.Data;
 
 /**
