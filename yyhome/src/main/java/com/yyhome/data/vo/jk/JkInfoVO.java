@@ -1,7 +1,9 @@
 package com.yyhome.data.vo.jk;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.yyhome.common.annotation.judge.Judge;
 import com.yyhome.data.BaseModel;
+import com.yyhome.data.enums.JudgeType;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,14 +14,19 @@ import java.util.List;
 @Data
 public class JkInfoVO extends BaseModel {
 
+    @Judge(JudgeType.INSERT)
     private String name;
 
+    @Judge(JudgeType.INSERT)
     private String style;
 
+    @Judge(JudgeType.INSERT)
     private String color;
 
+    @Judge(JudgeType.INSERT)
     private BigDecimal price;
 
+    @Judge(JudgeType.INSERT)
     private Byte type;
 
     private String remark;

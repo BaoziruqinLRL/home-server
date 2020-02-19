@@ -1,5 +1,7 @@
 package com.yyhome.data;
 
+import com.yyhome.common.annotation.judge.Judge;
+import com.yyhome.data.enums.JudgeType;
 import lombok.Data;
 
 /**
@@ -11,5 +13,6 @@ public class BaseModel{
 
     private Long userId;
 
+    @Judge({JudgeType.UPDATE})
     private Long id;
 }
