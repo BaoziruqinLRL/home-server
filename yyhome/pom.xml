@@ -130,6 +130,17 @@
             <artifactId>aspectjrt</artifactId>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>org.flowable</groupId>-->
+<!--            <artifactId>flowable-engine</artifactId>-->
+<!--            <version>6.5.0</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter</artifactId>
+            <version>6.3.0</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>

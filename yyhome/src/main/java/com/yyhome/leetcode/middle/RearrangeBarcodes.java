@@ -1,4 +1,4 @@
-package com.yyhome.leetcode;
+package com.yyhome.leetcode.middle;
 
 import java.util.*;
 

@@ -1,9 +1,9 @@
-package com.yyhome.leetcode;
+package com.yyhome.leetcode.middle;
 
 import java.util.Arrays;
 
 /**
- * 摆动排序
+ * 摆动排序 324
  * @author miluo
  * @date 2019-10-12
  */

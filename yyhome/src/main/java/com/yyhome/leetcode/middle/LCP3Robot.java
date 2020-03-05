@@ -1,4 +1,4 @@
-package com.yyhome.leetcode;
+package com.yyhome.leetcode.middle;
 
 /**
  * LCP3 机器人大冒险

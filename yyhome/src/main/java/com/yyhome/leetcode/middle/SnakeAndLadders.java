@@ -1,4 +1,4 @@
-package com.yyhome.leetcode;
+package com.yyhome.leetcode.middle;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * 蛇梯棋
+ * 蛇梯棋 909
  * @author miluo
  * @date 2019-10-14
  */

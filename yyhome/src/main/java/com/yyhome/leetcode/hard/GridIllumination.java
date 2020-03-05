@@ -1,9 +1,9 @@
-package com.yyhome.leetcode;
+package com.yyhome.leetcode.hard;
 
 import java.util.*;
 
 /**
- * 网格照明,  gridIllumination3是最优解
+ * 网格照明,  gridIllumination3是最优解 1001
  * @author miluo
  * @date 2019-10-15
  */

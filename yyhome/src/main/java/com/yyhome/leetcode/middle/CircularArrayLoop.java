@@ -1,9 +1,9 @@
-package com.yyhome.leetcode;
+package com.yyhome.leetcode.middle;
 
 import java.util.HashSet;
 
 /**
- * 环形数组 , 效率不高
+ * 环形数组 , 效率不高 457
  * @author miluo
  * @date 2019-10-31
  */

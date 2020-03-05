@@ -1,7 +1,7 @@
-package com.yyhome.leetcode;
+package com.yyhome.leetcode.middle;
 
 /**
- * 有效的井字游戏
+ * 有效的井字游戏 794
  * @author miluo
  * @date 2019-11-01
  */

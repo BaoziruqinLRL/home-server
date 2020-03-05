@@ -1,7 +1,7 @@
-package com.yyhome.leetcode;
+package com.yyhome.leetcode.middle;
 
 /**
- * 验证二叉搜索树
+ * 验证二叉搜索树 98
  * @author miluo
  * @date 2019-10-31
  */

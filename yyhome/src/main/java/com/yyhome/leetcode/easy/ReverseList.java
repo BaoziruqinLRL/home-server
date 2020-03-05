@@ -1,6 +1,7 @@
-package com.yyhome.leetcode;
+package com.yyhome.leetcode.easy;
 
 /**
+ * 206反转链表
  * @author miluo
  * @date 2020-03-02
  */
