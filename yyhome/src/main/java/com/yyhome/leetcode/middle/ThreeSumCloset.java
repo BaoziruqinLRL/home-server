@@ -1,10 +1,9 @@
 package com.yyhome.leetcode.middle;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
+ * 16 最接近的三数之和
  * @author miluo
  * @date 2020-06-29
  */
