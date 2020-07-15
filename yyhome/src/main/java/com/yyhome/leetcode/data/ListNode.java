@@ -1,9 +1,12 @@
 package com.yyhome.leetcode.data;
 
+import lombok.Data;
+
 /**
  * @author miluo
  * @date 2020-03-23
  */
+@Data
 public class ListNode {
 
     public int val;
@@ -26,7 +29,7 @@ public class ListNode {
     }
 
     public static void print(ListNode node){
-        for (;node != null;){
+        while (node != null){
             System.out.print(node.val + ",");
             node = node.next;
         }
