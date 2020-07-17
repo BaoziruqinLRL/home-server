@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @MapperScan("com.yyhome.dao.mapper.*")
 @EnableTransactionManagement
-@EnableApolloConfig
+//@EnableApolloConfig
 @EnableAspectJAutoProxy
 public class YyhomeApplication {
 

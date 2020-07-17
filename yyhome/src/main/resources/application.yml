@@ -1,6 +1,5 @@
 server:
   port: 8421
-
 spring:
   servlet:
     multipart:
@@ -35,6 +34,8 @@ spring:
           starttls:
             enable: true
             required: true
+  application:
+    name: yyhome
 
 # mybatis配置
 mybatis:
@@ -46,15 +47,15 @@ mybatis:
   checkConfigLocation: false
   executorType: SIMPLE
 
-app:
-  id: springboot-apollo
-apollo:
-  meta: http://127.0.0.1:8080
-  bootstrap:
-    enabled: true
-    eagerLoad:
-      enabled: true
+#app:
+#  id: springboot-apollo
+#apollo:
+#  meta: http://127.0.0.1:8080
+#  bootstrap:
+#    enabled: true
+#    eagerLoad:
+#      enabled: true
 
 common:
   image:
-    jkUploadPath: /Users/admin/Downloads/jk/
+    jkUploadPath: /home/upload/${spring.application.name}/jk/
