@@ -20,6 +20,21 @@
         <skipTests>true</skipTests>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>aliyun-central</id>
+            <url>https://maven.aliyun.com/repository/central</url>
+        </repository>
+        <repository>
+            <id>aliyun-public</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+        <repository>
+            <id>aliyun-spring</id>
+            <url>https://maven.aliyun.com/repository/spring</url>
+        </repository>
+    </repositories>
+
     <dependencies>
 
         <dependency>
