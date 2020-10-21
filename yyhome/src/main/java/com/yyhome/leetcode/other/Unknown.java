@@ -1,5 +1,13 @@
 package com.yyhome.leetcode.other;
 
+/**
+ * 回型数字三角形，输入5，返回
+ * 1 0 0 0 0
+ * 2 12 0 0 0
+ * 3 13 11 0 0
+ * 4 14 15 10 0
+ * 5 6 7 8 9
+ */
 public class Unknown {
 
     public static void main(String[] args){

@@ -2,6 +2,9 @@ package com.yyhome.leetcode.other;
 
 import java.util.Arrays;
 
+/**
+ * 求数列的最大偶数和
+ */
 public class EvenSum {
 
     public static void main(String[] args){
