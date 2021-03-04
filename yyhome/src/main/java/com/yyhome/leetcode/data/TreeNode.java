@@ -17,9 +17,15 @@ public class TreeNode {
 
     public TreeNode right;
 
+    public TreeNode() {
+    }
+
     TreeNode(int x) { val = x; }
 
     public static TreeNode createTree(Integer... values){
+        if (values == null){
+            return new TreeNode(0);
+        }
         int index = 1;
         TreeNode root = new TreeNode(values[0]);
         Queue<TreeNode> queue = new LinkedBlockingQueue<>();
