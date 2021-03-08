@@ -1,7 +1,5 @@
 package com.yyhome.leetcode.data;
 
-import lombok.Data;
-
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -20,7 +18,7 @@ public class TreeNode {
     public TreeNode() {
     }
 
-    TreeNode(int x) { val = x; }
+    public TreeNode(int x) { val = x; }
 
     public static TreeNode createTree(Integer... values){
         if (values == null){
@@ -50,5 +48,26 @@ public class TreeNode {
             }
         }
         return root;
+    }
+
+    public static void print(TreeNode root, int printType){
+        switch (printType){
+            case 1:
+                // 深度优先遍历
+                depthPrint(root);
+                break;
+            default:
+                break;
+        }
+        System.out.println("");
+    }
+
+    private static void depthPrint(TreeNode node){
+        if (node == null){
+            return;
+        }
+        System.out.print(node.val + " -> ");
+        depthPrint(node.left);
+        depthPrint(node.right);
     }
 }
