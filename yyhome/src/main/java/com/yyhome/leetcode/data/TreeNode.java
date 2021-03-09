@@ -21,7 +21,7 @@ public class TreeNode {
     public TreeNode(int x) { val = x; }
 
     public static TreeNode createTree(Integer... values){
-        if (values == null){
+        if (values == null || values.length == 0){
             return new TreeNode(0);
         }
         int index = 1;
