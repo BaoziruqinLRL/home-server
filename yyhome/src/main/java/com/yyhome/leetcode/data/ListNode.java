@@ -28,6 +28,25 @@ public class ListNode {
         return node;
     }
 
+    public static ListNode createCycleLink(int position, int... values){
+        ListNode cycleNode = null;
+        var count = 0;
+        var node = new ListNode(values[count]);
+        if (position == count){
+            cycleNode = node;
+        }
+        var currentNode = node;
+        for (count++;count < values.length;count++){
+            currentNode.next = new ListNode(values[count]);
+            if (position == count){
+                cycleNode = currentNode.next;
+            }
+            currentNode = currentNode.next;
+        }
+        currentNode.next = cycleNode;
+        return node;
+    }
+
     public static void print(ListNode node){
         while (node != null){
             System.out.print(node.val + ",");
