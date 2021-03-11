@@ -56,6 +56,10 @@ public class TreeNode {
                 // 深度优先遍历
                 depthPrint(root);
                 break;
+            case 2:
+                // 广度优先遍历
+                maxPrint(root);
+                break;
             default:
                 break;
         }
@@ -69,5 +73,23 @@ public class TreeNode {
         System.out.print(node.val + " -> ");
         depthPrint(node.left);
         depthPrint(node.right);
+    }
+
+    private static void maxPrint(TreeNode node){
+        if (node == null){
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedBlockingQueue<>();
+        queue.offer(node);
+        while (!queue.isEmpty()){
+            TreeNode poll = queue.poll();
+            System.out.print(poll.val + " -> ");
+            if (poll.left != null) {
+                queue.offer(poll.left);
+            }
+            if (poll.right != null) {
+                queue.offer(poll.right);
+            }
+        }
     }
 }
