@@ -18,6 +18,9 @@ public class ListNode {
     }
 
     public static ListNode createLink(int... values){
+        if (values.length == 0){
+            return null;
+        }
         var count = 0;
         var node = new ListNode(values[count++]);
         var currentNode = node;
