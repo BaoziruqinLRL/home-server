@@ -22,11 +22,11 @@ public class IsPerfectSquare {
      * @return
      */
     public boolean isPerfectSquare(int num) {
-        int start = 0;
-        int end = num / 2 + 1;
-        int middle = (start + end) / 2;
+        long start = 0;
+        long end = num / 2 + 1;
+        long middle = (start + end) / 2;
         while (start <= end){
-            int res = middle * middle;
+            long res = middle * middle;
             if (res == num){
                 return true;
             } else if (res < num){
