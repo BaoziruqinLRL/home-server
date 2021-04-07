@@ -30,6 +30,10 @@ public class GetMinimumDifference {
         return min;
     }
 
+    /**
+     * 二叉搜索树中序遍历是递增序列，此时只需要判断相邻两节点的差值即可
+     * @param node
+     */
     public void cycle(TreeNode node){
         if (node == null){
             return;
