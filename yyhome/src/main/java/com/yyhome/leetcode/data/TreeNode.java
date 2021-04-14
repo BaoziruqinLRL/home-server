@@ -50,6 +50,10 @@ public class TreeNode {
         return root;
     }
 
+    public static void print(TreeNode root){
+        System.out.println(root == null ? "null" : root.val);
+    }
+
     public static void print(TreeNode root, int printType){
         switch (printType){
             case 1:

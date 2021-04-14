@@ -1,5 +1,7 @@
 package com.yyhome.leetcode.middle;
 
+import com.yyhome.leetcode.data.TreeNode;
+
 /**
  * 验证二叉搜索树 98
  * @author miluo
@@ -46,13 +48,6 @@ public class ValidBST {
             return isValid(root.left,downLimit,currentVal) && isValid(root.right,currentVal,upLimit);
         }
         return true;
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
     }
 
 }
