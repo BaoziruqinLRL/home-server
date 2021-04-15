@@ -1,5 +1,7 @@
 package com.yyhome.leetcode.middle;
 
+import com.yyhome.leetcode.data.ListNode;
+
 /**
  * 2 两数相加
  * @author miluo
@@ -9,11 +11,11 @@ public class AddTwoNumbers {
 
     public static void main(String[] args){
         // 342 + 465 = 807
-        print(addTwoNumbers(buildNode(new int[]{3,4,2}),buildNode(new int[]{4,6,5})));
+        ListNode.print(addTwoNumbers(ListNode.createLink(3,4,2),ListNode.createLink(4,6,5)));
         // 3416
-        print(addTwoNumbers(buildNode(new int[]{1,0,9,5}),buildNode(new int[]{2,3,2,1})));
+        ListNode.print(addTwoNumbers(ListNode.createLink(1,0,9,5),ListNode.createLink(2,3,2,1)));
         // 10
-        print(addTwoNumbers(buildNode(new int[]{5}),buildNode(new int[]{5})));
+        ListNode.print(addTwoNumbers(ListNode.createLink(5),ListNode.createLink(5)));
     }
 
     private static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -43,30 +45,5 @@ public class AddTwoNumbers {
             currentNode.next = new ListNode(1);
         }
         return headNode;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
-
-    private static void print(ListNode node){
-        while (node != null){
-            System.out.print(node.val + " -> ");
-            node = node.next;
-        }
-        System.out.println("");
-    }
-
-    private static ListNode buildNode(int[] nums){
-        var head = new ListNode(nums[nums.length - 1]);
-        ListNode nextNode = head;
-        for (int index = nums.length - 2; index >=0; index--){
-            var node = new ListNode(nums[index]);
-            nextNode.next = node;
-            nextNode = node;
-        }
-        return head;
     }
  }
