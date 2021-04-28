@@ -24,7 +24,7 @@ public class AddTwoNumbers {
         ListNode headNode = null;
         ListNode currentNode = null;
         while (l1 != null || l2 != null){
-            var node = new ListNode((l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry);
+            ListNode node = new ListNode((l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry);
             if (node.val > 9){
                 carry = 1;
                 node.val -= 10;
