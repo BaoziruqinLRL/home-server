@@ -41,15 +41,23 @@ LengthFieldDecoder）。
 - netty提供了ProtobufDecoder和Encoder来使用该协议
 
 ### Netty如何实现断线自动重连
-
+- https://blog.csdn.net/u010889990/article/details/80116264
+- 心跳检测机制。Netty中可以设置读心跳、写心跳或者全心跳检测，当心跳检测不到时会返回心跳事件，在检测到该事件时可以进行重连操作
+- 客户端启动时重试。启动时注册监听器，实现operationComplete方法，检测连接状态，实现重试
+- 运行时重试。实现ChannelInboundHandlerAdapter中的channelInactive方法，该方法在连接断开时会回调，此时可以进行重试
 
 ### Netty如何支持单机百万连接
+- https://zhuanlan.zhihu.com/p/324601157
 
 ### 零拷贝原理
+- https://www.jianshu.com/p/a199ca28e80d
+- 提供DirectBuf，调用FileChannel.transferTo，依赖操作系统的方法，直接操作内存，避免了在JVM堆上创建对象，再将对象拷贝到内存中，节省了一次拷贝步骤
 
 ### 长连接心跳保活机制
+- 通过心跳包的机制来进行保活
 
 ### Netty的内存池实现
+- https://juejin.cn/post/6844904034801811469
 
 ### Netty如何解决NIO底层epoll空转导致CPU 100%的bug
 
