@@ -30,16 +30,16 @@ public class CheckSubarraySum {
         if (nums.length < 2) {
             return false;
         }
-        if (k == 0 || (nums[0] + nums[1]) % k == 0) {
+        if (k == 0) {
             return true;
         }
-        int total = nums[0] + nums[1];
+        int total = 0;
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(total % k, 1);
-        for (int i = 2; i < nums.length; i++) {
+        map.put(0, -1);
+        for (int i = 0; i < nums.length; i++) {
             total+=nums[i];
             int mod = total % k;
-            if ((nums[i] + nums[i-1]) % k == 0 || mod == 0 || (map.containsKey(mod) && i - map.get(mod) >= 2)) {
+            if (map.containsKey(mod) && i - map.get(mod) >= 2) {
                 return true;
             } else {
                 map.put(mod, map.getOrDefault(mod, i));
