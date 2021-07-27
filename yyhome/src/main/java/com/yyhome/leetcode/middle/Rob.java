@@ -16,6 +16,7 @@ public class Rob {
         System.out.println(new Rob().rob(new int[]{1,2,3,1}));
         System.out.println(new Rob().rob(new int[]{2,7,9,3,1}));
 
+        System.out.println(new Rob().robDPS(new int[]{4,1,2,7}));
         System.out.println(new Rob().robDPS(new int[]{1,2,1,1}));
         System.out.println(new Rob().robDPS(new int[]{1,3,1}));
         System.out.println(new Rob().robDPS(new int[]{1,2,3,1}));
