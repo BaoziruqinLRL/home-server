@@ -49,4 +49,49 @@ public class LengthOfLongestSubstring {
         }
         return Math.max(length,tempLength);
     }
+
+    /**
+     * 执行耗时:2 ms,击败了93.94% 的Java用户
+     * 内存消耗:41.4 MB,击败了19.52% 的Java用户
+     * @param s
+     * @return
+     */
+    private int lengthOfLongestSubstring2(String s) {
+        if (s.length() == 0) {
+            return 0;
+        }
+        int maxLength = 1;
+        int[] hash = new int[]{0, 0, 0};
+        int index = s.charAt(0) - 32;
+        int hashIndex = index / 32;
+        hash[hashIndex] = hash[hashIndex] | (1 << (index % 32));
+        int windowLeft = 0, windowRight = 1;
+        while (windowRight < s.length()) {
+            index = s.charAt(windowRight) - 32;
+            hashIndex = index / 32;
+            if ((hash[hashIndex] & (1 << (index % 32))) == 0) {
+                // 代表未存在重复元素
+                hash[hashIndex] = hash[hashIndex] | (1 << index % 32);
+                windowRight++;
+            } else {
+                maxLength = Math.max(windowRight - windowLeft, maxLength);
+                if (windowRight == s.length() - 1) {
+                    return maxLength;
+                }
+                while (windowLeft < windowRight) {
+                    if (s.charAt(windowLeft) == s.charAt(windowRight)) {
+                        windowLeft++;
+                        windowRight++;
+                        break;
+                    } else {
+                        index = s.charAt(windowLeft) - 32;
+                        hashIndex = index / 32;
+                        hash[hashIndex] = hash[hashIndex] ^ (1 << index % 32);
+                        windowLeft++;
+                    }
+                }
+            }
+        }
+        return Math.max(windowRight -windowLeft, maxLength);
+    }
 }
